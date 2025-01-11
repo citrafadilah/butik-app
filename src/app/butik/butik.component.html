@@ -1,0 +1,105 @@
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Master Data</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Data Butik</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <form class="m-4" (submit)="simpanButik(butikForm)" #butikForm="ngForm">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID</label>
+                        <input type="hidden" class="form-control" id="id" ngModel name="id" #id="ngModel">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" [ngClass]="nama.invalid && butikForm.submitted ? 'is-invalid':''"
+                            class="form-control" id="nama" ngModel name="nama" #nama="ngModel" required>
+
+                        <div *ngIf="nama.invalid && butikForm.submitted" class="invalid-feedback">
+                            Nama Butik harus diisi
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="harga" class="form-label">Harga</label>
+                        <input type="text" class="form-control" id="harga" ngModel name="harga" #harga="ngModel"
+                            required>
+
+                        <div *ngIf="harga.invalid && butikForm.submitted" class="invalid-feedback">
+                            Harga Butik harus diisi
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label me-4">Kategori</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="pakaian"
+                                ngModel name="kategori1">
+                            <label class="form-check-label" for="inlineCheckbox1">Pakaian</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="sepatu"
+                                ngModel name="kategori2">
+                            <label class="form-check-label" for="inlineCheckbox2">Sepatu</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="lainnya" ngModel
+                                name="kategori3">
+                            <label class="form-check-label" for="inlineCheckbox2">Lainnya</label>
+                        </div>
+
+                        <!-- <div *ngIf="!(kategori1.value || kategori2.value || kategori3.value)  && butikForm.submitted"" class="
+                            invalid-feedback">
+                            Kategori harus dipilih minimal satu !
+                        </div> -->
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">{{ mode }}</button>
+                    &nbsp;
+                    <button (click)="onReset()" type="reset" class="btn btn-danger">Reset</button>
+                </form>
+
+                <div *ngIf="messageExecute != ''" class="bg-success m-4 p-2 text-dark bg-opacity-25">
+                    <h6>{{ messageExecute }}</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Data Butik
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Harga</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="butikList.length>0">
+                            <tr *ngFor="let butik of butikList | paginate: { itemsPerPage: 5, currentPage: p }">
+                                <td>{{ butik.nama }}</td>
+                                <td>{{ butik.harga }}</td>
+                                <td><button (click)="tampilData(butik,butikForm)"
+                                        class="btn btn-outline-primary btn-sm">EDIT</button></td>
+                                <td><button (click)="hapusButik(butik)"
+                                        class="btn btn-outline-danger btn-sm">DELETE</button></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
