@@ -34,12 +34,11 @@ export class ButikService {
       });
   }
 
-  addButik(nama: string, harga: string, kategoris: string[]) {
+  addButik(nama: string, harga: string, kategoris: string) {
     const butik: Butiks = {
       _id: null,
       nama: nama,
       harga: harga,
-      kategori: kategoris,
     };
 
     //console.log(butik);
@@ -61,12 +60,12 @@ export class ButikService {
       });
   }
 
-  updateButik(nama: string, harga: string, kategoris: string[], id: string) {
+  updateButik(nama: string, harga: string, kategoris: string, id: string) {
     const butik: Butiks = {
       _id: id,
       nama: nama,
       harga: harga,
-      kategori: kategoris,
+      // kategori: kategoris,
     };
 
     //console.log(butik);

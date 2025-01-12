@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ButikService } from '../services/butik.service';
 import { Butiks } from '../models/butik.model';
 import { Subscription } from 'rxjs';
+import { KategoriService } from '../services/kategori.service';
 
 
 @Component({
@@ -103,7 +104,7 @@ export class ButikComponent implements OnInit,OnDestroy {
     // console.log(kategoris);
 
     if(this.mode.toUpperCase() === "SIMPAN"){
-      this.butikService.addButik(form.value.nama, form.value.harga,kategoris);
+      this.KategoriService.addButik(form.value.nama, form.value.harga,);
     }else{
       this.butikService.updateButik(form.value.nama, form.value.harga,
         kategoris, form.value.id);
