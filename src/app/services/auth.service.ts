@@ -10,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root',
 })
 export class AuthService {
-  private url: string = 'https://apisi51.vercel.app/users/';
+  private url: string = 'https://backend-delta-ruddy-45.vercel.app/';
   //private url: string = 'http://localhost:3000/users/';
   private authStatusListener = new Subject<boolean>();
 

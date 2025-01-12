@@ -7,12 +7,12 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class KategoriService {
   private apiUrl = environment.api;
 
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<ResponseAPI> {
-    return this.http.get<ResponseAPI>(`${this.apiUrl}/categories`);
+  getKategori(): Observable<ResponseAPI> {
+    return this.http.get<ResponseAPI>(`${this.apiUrl}/kategoris`);
   }
 }

@@ -1,4 +1,4 @@
-export interface Categories{
+export interface Kategori{
   _id : string | null,
   nama : string
 }
