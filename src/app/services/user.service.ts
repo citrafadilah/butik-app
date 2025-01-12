@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Users } from '../models/user.model';
+import { User } from '../models/user.model';
 import { response } from 'express';
 import { environment } from '../../environments/environment';
 
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   addUser(email: string, password: string) {
-    const user: Users = {
+    const user: User = {
       _id: null,
       email: email,
       password: password,
