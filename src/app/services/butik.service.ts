@@ -39,7 +39,7 @@ export class ButikService {
       _id: null,
       nama: nama,
       harga: harga,
-      kategori: kategoris,
+      kategori_id: kategoris,
     };
 
     //console.log(butik);
@@ -66,7 +66,7 @@ export class ButikService {
       _id: id,
       nama: nama,
       harga: harga,
-      kategori: kategoris,
+      kategori_id: kategoris,
     };
 
     //console.log(butik);

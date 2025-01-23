@@ -49,7 +49,7 @@ export class ButikComponent implements OnInit,OnDestroy {
     var kat2 : boolean =false;
     var kat3 : boolean = false;
 
-    butik.kategori.forEach((val)=>{
+    butik.kategori_id.forEach((val)=>{
       if(val.toUpperCase().trim()==="PAKAIAN"){
         kat1 =true;
       }else if(val.toUpperCase().trim()==="SEPATU"){
@@ -103,7 +103,7 @@ export class ButikComponent implements OnInit,OnDestroy {
     // console.log(kategoris);
 
     if(this.mode.toUpperCase() === "SIMPAN"){
-      this.butikService.addButik(form.value.nama, form.value.harga,kategoris);
+      this.butikService.addButik(form.value.nama, form.value.harga,form.value.kategori1,);
     }else{
       this.butikService.updateButik(form.value.nama, form.value.harga,
         kategoris, form.value.id);
